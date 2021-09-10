@@ -19,6 +19,7 @@ class Clientslist extends Component {
       </div>)
     }   
 } //Изменения
+console.log();
 
 export default connect(
     state => ({

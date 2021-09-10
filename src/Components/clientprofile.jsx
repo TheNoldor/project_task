@@ -13,6 +13,7 @@ class Clientprofile extends Component {
       </div>)
   }
 }// ААААА. Не трогаю, потому
+console.log();
 
 export default connect(
   state => ({
