@@ -1,3 +1,21 @@
 img{
   width: 50px;
 }
+.App {
+  display: grid;
+  grid-template-areas:
+  "hd cp cp cp cp cp cp cp"
+  "cl cp cp cp cp cp cp cp" ;
+}
+.Header{
+  grid-area: hd;
+  background-color: blue;
+}
+.ClientsProfile{
+  grid-area: cp;
+  background-color: rgb(255, 230, 0);
+}
+.ClientsList{
+  grid-area: cl;
+  background-color: rgb(60, 255, 0);
+}
