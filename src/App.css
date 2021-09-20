@@ -1,21 +1,33 @@
-img{
-  width: 50px;
-}
 .App {
   display: grid;
   grid-template-areas:
-  "hd cp cp cp cp cp cp cp"
-  "cl cp cp cp cp cp cp cp" ;
+    "sc cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp";
 }
-.Header{
-  grid-area: hd;
+
+.Search {
+  grid-area: sc;
   background-color: blue;
 }
-.ClientsProfile{
+
+.Profile {
   grid-area: cp;
   background-color: rgb(255, 230, 0);
 }
-.ClientsList{
+.ClientsMiniProfile {
+  border: solid black 1px;
+}
+
+.ClientsList {
   grid-area: cl;
   background-color: rgb(60, 255, 0);
+}
+
+img {
+  width: 50px;
 }
