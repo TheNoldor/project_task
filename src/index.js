@@ -1,19 +1,15 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import './index.css';
-import Clients from './Components/clients.json'; // This is json file
 import App from './App';
+import {BrowserRouter} from 'react-router-dom';
+import store from "./store";
+import { Provider } from "react-redux";
 
-function clients(state = Clients) { // Clients is array data
-  return state
-}
-
-const store = createStore(clients); // This is reducers
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>,
-  document.getElementById('root'));
+  document.getElementById("root")
+);

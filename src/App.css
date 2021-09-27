@@ -1,3 +1,33 @@
-img{
+.App {
+  display: grid;
+  grid-template-areas:
+    "sc cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp"
+    "cl cp cp cp cp cp cp cp";
+}
+
+.Search {
+  grid-area: sc;
+  background-color: blue;
+}
+
+.Profile {
+  grid-area: cp;
+  background-color: rgb(255, 230, 0);
+}
+.ClientsMiniProfile {
+  border: solid black 1px;
+}
+
+.ClientsList {
+  grid-area: cl;
+  background-color: rgb(60, 255, 0);
+}
+
+img {
   width: 50px;
 }

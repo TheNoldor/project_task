@@ -1,34 +1,38 @@
-import React, { Component } from 'react';
-import { Route, BrowserRouter as Router} from "react-router-dom";
-import { connect } from 'react-redux';
-import './App.css';
-import Clientprofile from './Components/clientprofile';
-import Clientslist from './Components/clientslist';
-import './Components/clients.json'; // This is json file
 
-class App extends Component {
-  render() {
-    console.log(this.props.testStore); // full array
-    return (
-      <Router>
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import ClientProfile from "./Components/ClientProfile/clientprofile";
+import "./App.css";
+import { SearchNav } from "./Components/Search/search";
+import ClientList from "./Components/ClientsList/clientslist";
+
+const App = () => {
+  return (
+    <Router>
       <div className="App">
-      <label class="input-group">Search
-      <input type="text" onkeypress="searchFilter()" class="form-control" placeholder="Search by name or anything" id="searchBar"/>
-      </label>
-        <Clientslist />
-        
-      <Route path = '/profile/'
-      render= { () => <Clientprofile />} />
+        <SearchNav />
+        <ClientList />
+      <Switch>
+      <Route exact path="/client/:index?">
+            <Route
+              exact
+              path="/client"
+              component={() => <div>Выберете клиента</div>}
+            />
+            <Route path="/client/:index" component={() => <ClientProfile />} />
+      </Route>
+      <Redirect exact from="/" to="/client/" />
+      <Route />
+    </Switch>
       </div>
-      </Router> 
-    );
-  }
-}
+    </Router>
+  );
+};
+console.log();
 
-
-export default connect(
-  state => ({
-    testStore: state
-  }),
-  dispatch => ({})
-)(App);
+export default App;
