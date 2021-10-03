@@ -4,7 +4,6 @@
 import React from "react";
 import ListItem from "./Clientslistitem";
 import clients from "../clients.json";
-import { NavLink } from "react-router-dom";
 
 
 
@@ -13,9 +12,10 @@ const ClientList = () => {
     <div className="ClientsList">
       {
         clients.map((client, index) => (
-          <NavLink to={`/client/` + index}>
-            <ListItem client={client} id={index} />
-          </NavLink>
+            <ListItem 
+            client={client} 
+            id={index} 
+            />
         ))}
     </div>
   )

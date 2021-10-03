@@ -1,8 +1,16 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import ClientProfile from "../ClientProfile/clientprofile";
+//import ClientProfile from "../ClientProfile/clientprofile";
+import App from '../../App.js';
+import { connect } from "react-redux";
+import ClientProfileA from "../../actions/clientPropfileA";
+import ClientProfile from "../ClientProfile/clientprofile.jsx";
+import { Link } from 'react-router-dom';
+import ClientList from "./clientslist.jsx";
+import { bindActionCreators } from "redux";
 
-const ListItem = ({ client, id }) => {
+
+const ListItem = ( {client, id }) => {
   var SelectedClient =  client;
   var key =  id;
   const shortName = (firstName, lastName) =>
@@ -11,7 +19,7 @@ const ListItem = ({ client, id }) => {
       .map((item) => item[0])
       .join(".");
   return (
-    <div className="ClientsMiniProfile" onClick={() => ClientProfile( SelectedClient, key )} >
+    <Link to={"/client/"+id} onClick={(dispatch) => ClientProfileA(id) }>
       <div className="MiniProfile">
         {shortName(client.general.firstName, client.general.lastName)}
       </div>
@@ -30,13 +38,16 @@ const ListItem = ({ client, id }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
+export function matchDispatchToProps (dispatch)
+{
+  return bindActionCreators({ClientProfileA: ClientProfileA}, dispatch)
+}
 
 ListItem.propTypes = {
   client: PropTypes.object,
 };
-
-export default ListItem;
+export default ListItem; connect(matchDispatchToProps);

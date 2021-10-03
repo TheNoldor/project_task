@@ -5,14 +5,23 @@ import {
   Switch,
   Route,
   Redirect,
+  useParams,
 } from "react-router-dom";
 import ClientProfile from "./Components/ClientProfile/clientprofile";
 import "./App.css";
 import { SearchNav } from "./Components/Search/search";
 import ClientList from "./Components/ClientsList/clientslist";
+import { Provider } from "react-redux";
+import store from "./store";
+import ClientProfileA from "./actions/clientPropfileA";
 
-const App = () => {
+function App(id){
+  var client = id;
+  console.log(client)
+  console.log(id);
+  let GetClient = ClientProfileA(id);
   return (
+    <Provider store={store}>
     <Router>
       <div className="App">
         <SearchNav />
@@ -22,15 +31,17 @@ const App = () => {
             <Route
               exact
               path="/client"
-              component={() => <div>Выберете клиента</div>}
+              component={() => <ClientProfile />}
             />
-            <Route path="/client/:index" component={() => <ClientProfile />} />
+            <Route exactpath= {"/client/"+id}
+              render = {() =>  (<ClientProfile id={GetClient}/>)} />
       </Route>
       <Redirect exact from="/" to="/client/" />
       <Route />
     </Switch>
       </div>
     </Router>
+    </Provider>
   );
 };
 console.log();
