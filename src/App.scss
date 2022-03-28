@@ -1,0 +1,85 @@
+body {
+  background-color: #7f99e085;
+}
+.App {
+  display: grid;
+  grid-template-areas: "cl cp cp";
+  grid-template-rows: 2em 5em;
+  grid-template-columns: 1.2fr 3fr;
+}
+
+.ClientsMiniProfile {
+  border: solid black 1px;
+  text-align: justify;
+  .Content {
+    background-color: white;
+    margin: 0.5em;
+    .Header {
+      display: flex;
+      img {
+        margin-top: 0.5em;
+        width: 2.5em;
+        height: 2.75em;
+        border: solid black 2px;
+        border-radius: 0.5em 0.5em 0.5em 0.5em;
+      }
+      .Name {
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+        font-size: larger;
+        font-weight: 700;
+        font-style: initial;
+        text-align: start;
+      }
+    }
+  }
+  margin-bottom: 0.1em;
+}
+.LeftForm {
+  margin-left: 0.2em;
+  .Search {
+    grid-area: sc;
+    margin-top: 0.2em;
+    position: static;
+    margin-left: 0.2em;
+    background-color: #7f99e085;
+    border: solid black 1px;
+    input {
+      margin-left: 0.2em;
+      margin-bottom: 0.1em;
+      border: solid black 1px;
+    }
+  }
+  .ClientsList {
+    margin-top: 0.2em;
+    margin-left: 0.2em;
+    min-height: 7em;
+    grid-area: cl;
+    position: static;
+    background-color: rgb(238, 235, 229);
+  }
+}
+
+.Profile {
+  margin-top: 0.2em;
+  margin-left: 0.2em;
+  min-height: 50em;
+  grid-area: cp;
+  background-color: #f8f1e9;
+  border: solid black 2px;
+  .ClientProfile {
+    margin-left: 1.5em;
+    .header {
+      img {
+        background-color: white;
+        margin-left: 0.5em;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        width: 20em;
+        height: 22em;
+        border: solid black 2px;
+        border-radius: 1em 1em 1em 1em;
+      }
+    }
+  }
+}
